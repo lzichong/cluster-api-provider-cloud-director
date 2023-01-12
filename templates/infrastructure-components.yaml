@@ -566,6 +566,13 @@ spec:
                   the relevant binaries installed If true, then an appropriate placement
                   policy should be set
                 type: boolean
+              extraOvdcNetworks:
+                description: ExtraOvdcNetworks is the list of extra Ovdc Networks
+                  that are mounted to machines. VCDClusterSpec.OvdcNetwork is always
+                  attached regardless of this field.
+                items:
+                  type: string
+                type: array
               placementPolicy:
                 description: PlacementPolicy is the placement policy to be used on
                   this machine.
@@ -840,6 +847,13 @@ spec:
                           with the relevant binaries installed If true, then an appropriate
                           placement policy should be set
                         type: boolean
+                      extraOvdcNetworks:
+                        description: ExtraOvdcNetworks is the list of extra Ovdc Networks
+                          that are mounted to machines. VCDClusterSpec.OvdcNetwork
+                          is always attached regardless of this field.
+                        items:
+                          type: string
+                        type: array
                       placementPolicy:
                         description: PlacementPolicy is the placement policy to be
                           used on this machine.
@@ -1163,7 +1177,7 @@ spec:
       containers:
       - command:
         - /opt/vcloud/bin/cluster-api-provider-cloud-director
-        image: harbor-repo.vmware.com/vcloud/cluster-api-provider-cloud-director:main-branch.6409b2b
+        image: harbor-repo.vmware.com/vcloud/cluster-api-provider-cloud-director:lzichong-cafv-125.3b04cc3
         livenessProbe:
           httpGet:
             path: /healthz
